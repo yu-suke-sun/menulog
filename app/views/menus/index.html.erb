@@ -1,0 +1,14 @@
+<%= form_with(url: search_menus_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :keyword, placeholder: "メニューを検索する", class: "search-input" %>
+  <%= form.submit "検索", class: "search-btn" %>
+<% end %>
+<div class="contents row" >
+  <% @menus.each do |menu| %>
+    <div class="content_postt" >
+      <p><%= menu.date %></p>
+      <span class="name" >
+        <%= link_to menu.category.name, menu_path(menu.id), method: :get %>
+      </span>
+    </div>
+  <% end %>
+</div>

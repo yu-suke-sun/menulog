@@ -1,0 +1,49 @@
+<div class="top-banner" >
+  <% if @menu.images.attached? %>
+    <% @menu.images.each do |image| %>
+      <%= image_tag image.variant(resize: '300x300') %> <br>
+    <% end %>
+  <% end %>
+</div>
+<table class="detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item"><%= @menu.saki%></th>
+      <td class="detail-value"><%= @menu.sakitext%></td>
+    </tr>
+    <tr>
+      <th class="detail-item"><%= @menu.zen%></th>
+      <td class="detail-value"><%= @menu.zentext%></td>
+    </tr>
+    <tr>
+      <th class="detail-item"><%= @menu.zatu%></th>
+      <td class="detail-value"><%= @menu.zatutext%></td>
+    </tr>
+    <tr>
+      <th class="detail-item"><%= @menu.nimo%></th>
+      <td class="detail-value"><%= @menu.nimotext%></td>
+    </tr>
+    <tr>
+      <th class="detail-item"><%= @menu.yaki%></th>
+      <td class="detail-value"><%= @menu.yakitext%></td>
+    </tr>
+    <tr>
+      <th class="detail-item"><%= @menu.ai%></th>
+      <td class="detail-value"><%= @menu.aitext%></td>
+    </tr>
+    <tr>
+      <th class="detail-item"><%= @menu.syo%></th>
+      <td class="detail-value"><%= @menu.syotext%></td>
+    </tr>
+    <tr>
+      <th class="detail-item"><%= @menu.deza%></th>
+      <td class="detail-value"><%= @menu.dezatext%></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="item-box">
+  <%= link_to "編集", edit_menu_path(@menu.id) , method: :get, class: "item-red-btn" %>
+  <p class="or-text">or</p>
+  <%= link_to "削除", menu_path(@menu.id) , method: :delete, class:"item-destroy" %>
+</div>

@@ -1,0 +1,37 @@
+<div class="contents row">
+  <div class="container">
+    <h3>編集する</h3>
+    <%= form_with(model: @menu, local: true) do |form| %>
+      <%= raw sprintf(
+                  form.date_select(
+                    :date,
+                    class:'select-birth',
+                    id:"birth-date",
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: 2015,
+                    end_year: (Time.now.year),
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+      <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      <%= form.file_field :images, multiple: true, id:"menu-image" %>
+      <%= form.text_field :saki, placeholder: "先付け" %>
+      <%= form.text_area :sakitext, placeholder: "先付け内容", rows: "5" %>
+      <%= form.text_field :zen, placeholder: "前菜" %>
+      <%= form.text_area :zentext, placeholder: "前菜内容", rows: "5" %>
+      <%= form.text_field :zatu, placeholder: "座付き" %>
+      <%= form.text_area :zatutext, placeholder: "座付き内容", rows: "5" %>
+      <%= form.text_field :nimo, placeholder: "煮物" %>
+      <%= form.text_area :nimotext, placeholder: "煮物内容", rows: "5" %>
+      <%= form.text_field :yaki, placeholder: "焼き物" %>
+      <%= form.text_area :yakitext, placeholder: "焼き物内容", rows: "5" %>
+      <%= form.text_field :ai, placeholder: "合肴" %>
+      <%= form.text_area :aitext, placeholder: "合肴", rows: "5" %>
+      <%= form.text_field :syo, placeholder: "食事" %>
+      <%= form.text_area :syotext, placeholder: "食事内容", rows: "5" %>
+      <%= form.text_field :deza, placeholder: "デザート" %>
+      <%= form.text_area :dezatext, placeholder: "デザート内容", rows: "5" %>
+      <%= form.submit "SEND" %>
+    <% end %>
+  </div>
+</div>
